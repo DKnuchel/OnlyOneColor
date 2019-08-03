@@ -2,27 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bouncy : MonoBehaviour
+[RequireComponent(typeof(BehaviourScript))]
+[RequireComponent(typeof(Rigidbody))]
+public class BouncyScript : MonoBehaviour
 {
+    BehaviourScript behaviourScript = null;
     bool shouldJump = false;
-
-    [SerializeField] GameObject masterController = null;
-
-    MasterScript masterScript;
     Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-
-        masterScript = masterController.GetComponent<MasterScript>();
+        behaviourScript = GetComponent<BehaviourScript>();
     }
 
 
     private void FixedUpdate()
     {
-        if(shouldJump && masterScript.isBouncing())
+        if(shouldJump && behaviourScript.isBouncing())
         {
             Debug.Log("Bounce");
             rb.AddForce(0, 10, 0, ForceMode.VelocityChange);
