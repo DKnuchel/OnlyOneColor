@@ -34,12 +34,12 @@ public class Bouncy : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         shouldJump = true;
-        rb.velocity = Vector3.zero;
+        //rb.velocity = Vector3.zero;
     }
 
     void OnCollisionStay(Collision collision)
     {
         shouldJump = true;
-        rb.velocity = Vector3.zero;
+        //rb.velocity = Vector3.zero;
     }
 }
