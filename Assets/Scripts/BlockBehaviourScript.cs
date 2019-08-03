@@ -137,17 +137,17 @@ public class BlockBehaviourScript : MonoBehaviour
 
     public bool IsBouncing()
     {
-        return (!isolated || color != 1) && (isolated || color == 0 || color == 1 || color == 6 || color == 5) && (masterScript.color == 1 || masterScript.color == 6 || masterScript.color == 5);
+        return (!isolated || color != 1) && (isolated || color == 0 || color == 1) && (masterScript.color == 1 || masterScript.color == 6 || masterScript.color == 5);
     }
 
     public bool IsMinimized()
     {
-        return (!isolated || color != 2) && (isolated || color == 0 || color == 2 || color == 6 || color == 4) && (masterScript.color == 2 || masterScript.color == 6 || masterScript.color == 4);
+        return (!isolated || color != 2) && (isolated || color == 0 || color == 2) && (masterScript.color == 2 || masterScript.color == 6 || masterScript.color == 4);
     }
 
     public bool IsSticky()
     {
-        return (!isolated || color != 3) && (isolated || color == 0 || color == 3 || color == 5 || color == 4) && (masterScript.color == 3 || masterScript.color == 5 || masterScript.color == 4);
+        return (!isolated || color != 3) && (isolated || color == 0 || color == 3) && (masterScript.color == 3 || masterScript.color == 5 || masterScript.color == 4);
     }
 
     public bool IsSpeedBoosted()
