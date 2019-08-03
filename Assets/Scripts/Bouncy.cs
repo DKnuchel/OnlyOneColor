@@ -33,13 +33,25 @@ public class Bouncy : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        shouldJump = true;
-        rb.velocity = new Vector3(rb.velocity.x, 0, 0);
+        var relativePosition = Quaternion.Inverse(transform.rotation) * collision.GetContact(0).normal;
+        if (Mathf.Abs(relativePosition.x) < Mathf.Abs(relativePosition.y) && relativePosition.y > 0)
+        {
+            Debug.Log("Should jump");
+            shouldJump = true;
+        }
     }
 
     void OnCollisionStay(Collision collision)
     {
-        shouldJump = true;
-        rb.velocity = new Vector3(rb.velocity.x, 0, 0);
+        var relativePosition = Quaternion.Inverse(transform.rotation) * collision.GetContact(0).normal;
+        if (Mathf.Abs(relativePosition.x) < Mathf.Abs(relativePosition.y) && relativePosition.y > 0)
+        {
+            Debug.Log("Should jump");
+            shouldJump = true;
+        }
+        else
+        {
+            shouldJump = false;
+        }
     }
 }

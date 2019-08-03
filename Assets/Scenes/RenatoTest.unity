@@ -270,6 +270,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 548886200530926908, guid: 34cee4ecbb404ae4eb3dd837114dfdb4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.59
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34cee4ecbb404ae4eb3dd837114dfdb4, type: 3}
 --- !u!1 &448927315
@@ -537,7 +542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc1497606c5e4d84b91c2b519f286082, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bouncing: 1
+  bouncing: 0
   minimized: 0
   sticky: 0
   speedBoost: 0
@@ -569,6 +574,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cube
       objectReference: {fileID: 0}
+    - target: {fileID: 6487663654764498407, guid: b1c950b43a1621549b20386f9f8701db,
+        type: 3}
+      propertyPath: masterController
+      value: 
+      objectReference: {fileID: 1931374114}
     - target: {fileID: 6487663654764498403, guid: b1c950b43a1621549b20386f9f8701db,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -625,11 +635,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6487663654764498402, guid: b1c950b43a1621549b20386f9f8701db,
-        type: 3}
-      propertyPath: masterController
-      value: 
-      objectReference: {fileID: 1931374114}
-    - target: {fileID: 6487663654764498407, guid: b1c950b43a1621549b20386f9f8701db,
         type: 3}
       propertyPath: masterController
       value: 

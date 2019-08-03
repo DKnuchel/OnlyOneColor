@@ -23,6 +23,11 @@ public class MasterScript : MonoBehaviour
         
     }
 
+    int getCurrentColor()
+    {
+        return 0;
+    }
+
     public bool isBouncing()
     {
         return bouncing;
