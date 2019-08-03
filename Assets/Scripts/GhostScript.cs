@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(BehaviourScript))]
+[RequireComponent(typeof(BlockBehaviourScript))]
 [RequireComponent(typeof(Rigidbody))]
 public class GhostScript : MonoBehaviour
 {
-    BehaviourScript behaviourScript = null;
+    BlockBehaviourScript behaviourScript = null;
 
     Collider collider = null;
 
@@ -15,7 +15,7 @@ public class GhostScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        behaviourScript = GetComponent<BehaviourScript>();
+        behaviourScript = GetComponent<BlockBehaviourScript>();
         collider = GetComponent<Collider>();
 
         rb = GetComponent<Rigidbody>();

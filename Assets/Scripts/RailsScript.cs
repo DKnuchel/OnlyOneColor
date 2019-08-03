@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-[RequireComponent(typeof(BehaviourScript))]
+[RequireComponent(typeof(BlockBehaviourScript))]
 public class RailsScript : MonoBehaviour
 {
     [SerializeField] Vector3 offset;
@@ -11,7 +11,7 @@ public class RailsScript : MonoBehaviour
     [SerializeField] [Range(0.01f, 10.0f)] float speedBoostMultiplier = 2.0f;
 
 
-    private BehaviourScript behaviourScript;
+    private BlockBehaviourScript behaviourScript;
     private Rigidbody rb;
 
     private Vector3 startPos;
@@ -22,7 +22,7 @@ public class RailsScript : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        behaviourScript = GetComponent<BehaviourScript>();
+        behaviourScript = GetComponent<BlockBehaviourScript>();
 
         startPos = transform.position;
         gizmoPos = transform.position;
@@ -39,6 +39,7 @@ public class RailsScript : MonoBehaviour
         float timeSpeed;
         if (behaviourScript.IsSpeedBoosted())
         {
+            Debug.Log("Rails speed boost");
             timeSpeed = speed * speedBoostMultiplier;
         }
         else

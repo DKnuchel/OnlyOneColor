@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(BehaviourScript))]
+[RequireComponent(typeof(BlockBehaviourScript))]
 [RequireComponent(typeof(Rigidbody))]
 public class GravityScript : MonoBehaviour
 {
-    BehaviourScript behaviourScript = null;
+    BlockBehaviourScript behaviourScript = null;
 
     MasterScript masterScript;
     Rigidbody rb;
@@ -15,7 +15,7 @@ public class GravityScript : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        behaviourScript = GetComponent<BehaviourScript>();
+        behaviourScript = GetComponent<BlockBehaviourScript>();
     }
 
     // Update is called once per frame

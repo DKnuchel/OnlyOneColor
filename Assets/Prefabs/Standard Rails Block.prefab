@@ -149,10 +149,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7752bb94cf02774aa7e4d43fe4fbf27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: 0
-  isolated: 0
+  color: 2
+  isolated: 1
   fixHorizontal: 0
   fixVertical: 0
+  whiteMaterial: {fileID: 2100000, guid: 561eefc69e0b58d45be6a22ee1a2a722, type: 2}
+  redMaterial: {fileID: 2100000, guid: 277c3d4a5eaa28943ac5da1a4bcc7a3c, type: 2}
+  blueMaterial: {fileID: 2100000, guid: eca8882df4d9ffa4fa0a61963cc22675, type: 2}
+  yellowMaterial: {fileID: 2100000, guid: 1c4ce63bded85a64abeb5986e9e90508, type: 2}
+  greenMaterial: {fileID: 2100000, guid: e96590457570f2b47ac69613ca4f79d0, type: 2}
+  orangeMaterial: {fileID: 2100000, guid: 4272d45d02071a6458f4cf9f43b55a4d, type: 2}
+  purpleMaterial: {fileID: 2100000, guid: 0e10f69e84e429f4ba8f8d55e8b0d27b, type: 2}
+  blackMaterial: {fileID: 2100000, guid: 490c132c9613a834c8918c2f9d664028, type: 2}
   masterScriptObject: {fileID: 0}
 --- !u!114 &-2798019966849767184
 MonoBehaviour:

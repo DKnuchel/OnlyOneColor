@@ -366,6 +366,11 @@ PrefabInstance:
       propertyPath: masterScriptObject
       value: 
       objectReference: {fileID: 1931374114}
+    - target: {fileID: -2798019966849767184, guid: 72cca114baba1a54a9adf95810421205,
+        type: 3}
+      propertyPath: speedBoostMultiplier
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72cca114baba1a54a9adf95810421205, type: 3}
 --- !u!4 &494644113 stripped

@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(BehaviourScript))]
+[RequireComponent(typeof(BlockBehaviourScript))]
 [RequireComponent(typeof(Rigidbody))]
 public class MinimizeScript : MonoBehaviour
 {
-    BehaviourScript behaviourScript = null;
+    BlockBehaviourScript behaviourScript = null;
     Rigidbody rb;
     float size = 0.01f;
     float angle;
@@ -19,7 +19,7 @@ public class MinimizeScript : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        behaviourScript = GetComponent<BehaviourScript>();
+        behaviourScript = GetComponent<BlockBehaviourScript>();
         transformValue = transform.localScale.x / 4;
     }
 
