@@ -33,7 +33,7 @@ public class Sticky : MonoBehaviour
         {
             while(contactSide == 1 || contactSide == 3)
             {
-                //rb.velocity = new Vector3(collisionObject.GetComponent<Rigidbody>().velocity.x,collisionObject.GetComponent<Rigidbody>().velocity.y,0);
+                rb.velocity = new Vector3(collisionObject.GetComponent<Rigidbody>().velocity.x,collisionObject.GetComponent<Rigidbody>().velocity.y,0);
 
             }
         }
