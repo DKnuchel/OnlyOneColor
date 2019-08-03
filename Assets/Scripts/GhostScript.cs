@@ -24,7 +24,7 @@ public class GhostScript : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
-        if (behaviourScript.isGhostActivated())
+        if (behaviourScript.IsGhostActivated())
         {
             collider.enabled = false;
             rb.constraints = RigidbodyConstraints.FreezePosition;

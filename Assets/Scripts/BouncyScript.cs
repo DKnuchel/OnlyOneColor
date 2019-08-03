@@ -20,7 +20,7 @@ public class BouncyScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(shouldJump && behaviourScript.isBouncing())
+        if(shouldJump && behaviourScript.IsBouncing())
         {
             Debug.Log("Bounce");
             rb.AddForce(0, 10, 0, ForceMode.VelocityChange);

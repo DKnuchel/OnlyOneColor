@@ -21,7 +21,7 @@ public class PlayerContoller : MonoBehaviour
         if(isCollided)
         {
             float multiplier = 1f / (1f + rb.velocity.magnitude * 2);
-            bool isSpeedBoosted = behaviourScript.isSpeedBoosted();
+            bool isSpeedBoosted = behaviourScript.IsSpeedBoosted();
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {
                 if (isSpeedBoosted)

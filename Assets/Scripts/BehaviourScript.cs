@@ -2,47 +2,82 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class BehaviourScript : MonoBehaviour
 {
     [SerializeField] [Range(0, 7)] int color = 0;
     [SerializeField] bool isolated = false;
+    [SerializeField] bool fixHorizontal = false;
+    [SerializeField] bool fixVertical = false;
 
     [SerializeField] GameObject masterScriptObject;
 
+
+    Rigidbody rb;
     MasterScript masterScript;
+
+    Vector3 fixedPosition;
 
     private void Start()
     {
+        rb = GetComponent<Rigidbody>();
         masterScript = masterScriptObject.GetComponent<MasterScript>();
+        fixedPosition = rb.position;
     }
 
-    public bool isBouncing()
+    private void FixedUpdate()
     {
-        return (color == 0  || color == 1 || color == 6 || color == 5) && (masterScript.color == 1 || masterScript.color == 6 || masterScript.color == 5);
+        RestrictAxis();
     }
 
-    public bool isMinimized()
+    private void LateUpdate()
     {
-        return (color == 0 || color == 2 || color == 6 || color == 4) && (masterScript.color == 2 || masterScript.color == 6 || masterScript.color == 4);
+        RestrictAxis();
     }
 
-    public bool isSticky()
+
+
+    private void RestrictAxis()
     {
-        return (color == 0 || color == 3 || color == 5 || color == 4) && (masterScript.color == 3 || masterScript.color == 5 || masterScript.color == 4);
+        if (fixVertical)
+        {
+            transform.position = rb.position = new Vector3(rb.position.x, fixedPosition.y, rb.position.z);
+            rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+        }
+        if (fixHorizontal)
+        {
+            transform.position = rb.position = new Vector3(fixedPosition.x, rb.position.y, rb.position.z);
+            rb.velocity = new Vector3(0, rb.velocity.y, rb.velocity.z);
+        }
     }
 
-    public bool isSpeedBoosted()
+    public bool IsBouncing()
     {
-        return (color == 0 || color == 6) && masterScript.color == 6;
+        return (!isolated || color != 1) && (color == 0  || color == 1 || color == 6 || color == 5) && (masterScript.color == 1 || masterScript.color == 6 || masterScript.color == 5);
     }
 
-    public bool isGhostActivated()
+    public bool IsMinimized()
     {
-        return (color == 0 || color == 4) && masterScript.color == 4;
+        return (!isolated || color != 2) && (color == 0 || color == 2 || color == 6 || color == 4) && (masterScript.color == 2 || masterScript.color == 6 || masterScript.color == 4);
     }
 
-    public bool isGravitationalReversed()
+    public bool IsSticky()
     {
-        return (color == 0 || color == 5) && masterScript.color == 5;
+        return (!isolated || color != 3) && (color == 0 || color == 3 || color == 5 || color == 4) && (masterScript.color == 3 || masterScript.color == 5 || masterScript.color == 4);
+    }
+
+    public bool IsSpeedBoosted()
+    {
+        return (!isolated || color != 6) && (color == 0 || color == 6) && masterScript.color == 6;
+    }
+
+    public bool IsGhostActivated()
+    {
+        return (!isolated || color != 4) && (color == 0 || color == 4) && masterScript.color == 4;
+    }
+
+    public bool IsGravitationalReversed()
+    {
+        return (!isolated || color != 5) && (color == 0 || color == 5) && masterScript.color == 5;
     }
 }

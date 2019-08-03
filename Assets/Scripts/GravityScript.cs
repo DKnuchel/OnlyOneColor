@@ -21,7 +21,7 @@ public class GravityScript : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
-        if (behaviourScript.isGravitationalReversed())
+        if (behaviourScript.IsGravitationalReversed())
         {
             rb.AddForce(Physics.gravity * -2);
         }
