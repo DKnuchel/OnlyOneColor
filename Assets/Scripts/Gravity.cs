@@ -22,9 +22,7 @@ public class Gravitation : MonoBehaviour
         if (masterScript.isGravitationalReversed())
         {
             rb.AddForce(Physics.gravity * -2);
-            Debug.Log("Gravity reversed");
 
         }
-
     }
 }
