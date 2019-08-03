@@ -20,6 +20,10 @@ public class BlockBehaviourScript : MonoBehaviour
     [SerializeField] Material purpleMaterial;
     [SerializeField] Material blackMaterial;
 
+    Vector4 defaultColor;
+    Shader defaultShader;
+    [SerializeField] Shader ghostShader;
+
     [SerializeField] GameObject masterScriptObject;
 
 
@@ -36,6 +40,13 @@ public class BlockBehaviourScript : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         masterScript = masterScriptObject.GetComponent<MasterScript>();
         fixedPosition = rb.position;
+
+        if (renderer != null)
+        {
+            defaultShader = renderer.sharedMaterial.shader;
+            defaultColor = renderer.sharedMaterial.GetColor("_BaseColor");
+        }
+
     }
 
     private void Update()
@@ -47,29 +58,49 @@ public class BlockBehaviourScript : MonoBehaviour
             {
                 default:
                 case 0:
-                    renderer.material = whiteMaterial;
+                    renderer.sharedMaterial = whiteMaterial;
                     break;
                 case 1:
-                    renderer.material = redMaterial;
+                    renderer.sharedMaterial = redMaterial;
                     break;
                 case 2:
-                    renderer.material = blueMaterial;
+                    renderer.sharedMaterial = blueMaterial;
                     break;
                 case 3:
-                    renderer.material = yellowMaterial;
+                    renderer.sharedMaterial = yellowMaterial;
                     break;
                 case 4:
-                    renderer.material = greenMaterial;
+                    renderer.sharedMaterial = greenMaterial;
                     break;
                 case 5:
-                    renderer.material = orangeMaterial;
+                    renderer.sharedMaterial = orangeMaterial;
                     break;
                 case 6:
-                    renderer.material = purpleMaterial;
+                    renderer.sharedMaterial = purpleMaterial;
                     break;
                 case 7:
-                    renderer.material = blackMaterial;
+                    renderer.sharedMaterial = blackMaterial;
                     break;
+            }
+
+            if (Application.isPlaying)
+            {
+                if (IsGhostActivated() && GetComponent<GhostScript>() != null)
+                {
+                    if (renderer.material.shader != ghostShader)
+                    {
+                        renderer.material.shader = ghostShader;
+                    }
+                    renderer.material.SetFloat("Vector1_56E2CC01", 0.02f + (Mathf.Sin(Time.unscaledTime * 3.0f) + 1.0f) * 0.5f * 0.1f);
+                    renderer.material.SetColor("Color_E51BFDC2", defaultColor);
+                }
+                else
+                {
+                    if (renderer.material.shader != defaultShader)
+                    {
+                        renderer.material.shader = defaultShader;
+                    }
+                }
             }
         }
     }
