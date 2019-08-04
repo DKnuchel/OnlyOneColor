@@ -39,7 +39,6 @@ public class RailsScript : MonoBehaviour
         float timeSpeed;
         if (behaviourScript.IsSpeedBoosted())
         {
-            Debug.Log("Rails speed boost");
             timeSpeed = speed * speedBoostMultiplier;
         }
         else

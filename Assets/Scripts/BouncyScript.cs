@@ -26,7 +26,6 @@ public class BouncyScript : MonoBehaviour
     {
         if (shouldJump && behaviourScript.IsBouncing())
         {
-            Debug.Log("Bounce");
             rb.AddForce(0, 5 * (IsGravityDown() ? 1 : -1), 0, ForceMode.VelocityChange);
         }
 
