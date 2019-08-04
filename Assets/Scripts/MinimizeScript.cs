@@ -65,12 +65,10 @@ public class MinimizeScript : MonoBehaviour
         {
             if (relativePosition.y < 0)
             {
-                print("above");
                 contactSide = 0;
             }
             else
             {
-                print("below");
                 contactSide = 2;
             }
         }
@@ -78,12 +76,10 @@ public class MinimizeScript : MonoBehaviour
         {
             if (relativePosition.x < 0)
             {
-                print("right");
                 contactSide = 1;
             }
             else
             {
-                print("left");
                 contactSide = 3;
             }
         }

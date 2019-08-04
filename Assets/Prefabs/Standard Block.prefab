@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 4278702506441454789}
   - component: {fileID: 4278702506441454788}
   - component: {fileID: 4278702506441454791}
+  - component: {fileID: 4518871189506097073}
   m_Layer: 0
   m_Name: Standard Block
   m_TagString: Untagged
@@ -178,6 +179,20 @@ MonoBehaviour:
   isolated: 0
   fixHorizontal: 1
   fixVertical: 0
+  masterScriptObject: {fileID: 0}
+--- !u!114 &4518871189506097073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4278702506441454785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7bfa1d1cbc50594caeeac3ff51e227c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterScriptObject: {fileID: 0}
   whiteMaterial: {fileID: 2100000, guid: 561eefc69e0b58d45be6a22ee1a2a722, type: 2}
   redMaterial: {fileID: 2100000, guid: 277c3d4a5eaa28943ac5da1a4bcc7a3c, type: 2}
   blueMaterial: {fileID: 2100000, guid: 5c8456fbe80f9744a8b0e4f871226881, type: 2}
@@ -188,4 +203,3 @@ MonoBehaviour:
   blackMaterial: {fileID: 2100000, guid: 490c132c9613a834c8918c2f9d664028, type: 2}
   ghostShader: {fileID: -6465566751694194690, guid: 0298f77ac66033e40919fa4f97d91def,
     type: 3}
-  masterScriptObject: {fileID: 0}

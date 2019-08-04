@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[ExecuteInEditMode]
 [RequireComponent(typeof(Rigidbody))]
 public class BlockBehaviourScript : MonoBehaviour
 {
@@ -10,19 +9,6 @@ public class BlockBehaviourScript : MonoBehaviour
     [SerializeField] bool isolated = false;
     [SerializeField] bool fixHorizontal = false;
     [SerializeField] bool fixVertical = false;
-
-    [SerializeField] Material whiteMaterial;
-    [SerializeField] Material redMaterial;
-    [SerializeField] Material blueMaterial;
-    [SerializeField] Material yellowMaterial;
-    [SerializeField] Material greenMaterial;
-    [SerializeField] Material orangeMaterial;
-    [SerializeField] Material purpleMaterial;
-    [SerializeField] Material blackMaterial;
-
-    Vector4 defaultColor;
-    Shader defaultShader;
-    [SerializeField] Shader ghostShader;
 
     [SerializeField] GameObject masterScriptObject;
 
@@ -32,93 +18,21 @@ public class BlockBehaviourScript : MonoBehaviour
 
     Vector3 fixedPosition;
 
-    MeshRenderer renderer;
-
     private void Start()
     {
-        renderer = GetComponent<MeshRenderer>();
         rb = GetComponent<Rigidbody>();
         masterScript = masterScriptObject.GetComponent<MasterScript>();
         fixedPosition = rb.position;
-
-        if (renderer != null)
-        {
-            defaultShader = renderer.sharedMaterial.shader;
-            defaultColor = renderer.sharedMaterial.GetColor("_BaseColor");
-        }
-
-    }
-
-    private void Update()
-    {
-        if (renderer != null)
-        {
-            //oof
-            switch (color)
-            {
-                default:
-                case 0:
-                    renderer.sharedMaterial = whiteMaterial;
-                    break;
-                case 1:
-                    renderer.sharedMaterial = redMaterial;
-                    break;
-                case 2:
-                    renderer.sharedMaterial = blueMaterial;
-                    break;
-                case 3:
-                    renderer.sharedMaterial = yellowMaterial;
-                    break;
-                case 4:
-                    renderer.sharedMaterial = greenMaterial;
-                    break;
-                case 5:
-                    renderer.sharedMaterial = orangeMaterial;
-                    break;
-                case 6:
-                    renderer.sharedMaterial = purpleMaterial;
-                    break;
-                case 7:
-                    renderer.sharedMaterial = blackMaterial;
-                    break;
-            }
-
-            if (Application.isPlaying)
-            {
-                if (IsGhostActivated() && GetComponent<GhostScript>() != null)
-                {
-                    if (renderer.material.shader != ghostShader)
-                    {
-                        renderer.material.shader = ghostShader;
-                    }
-                    renderer.material.SetFloat("Vector1_56E2CC01", 0.02f + (Mathf.Sin(Time.unscaledTime * 3.0f) + 1.0f) * 0.5f * 0.1f);
-                    renderer.material.SetColor("Color_E51BFDC2", defaultColor);
-                }
-                else
-                {
-                    if (renderer.material.shader != defaultShader)
-                    {
-                        renderer.material.shader = defaultShader;
-                    }
-                }
-            }
-        }
     }
 
     private void FixedUpdate()
     {
-        if (Application.isPlaying)
-        {
-            RestrictAxis();
-        }
+        RestrictAxis();
     }
 
     private void LateUpdate()
     {
-        if (Application.isPlaying)
-        {
-            RestrictAxis();
-        }
+        RestrictAxis();
     }
 
     private void RestrictAxis()
@@ -163,5 +77,13 @@ public class BlockBehaviourScript : MonoBehaviour
     public bool IsGravitationalReversed()
     {
         return (!isolated || color != 5) && (isolated || color == 0 || color == 5) && masterScript.color == 5;
+    }
+
+    public int Color
+    {
+        get
+        {
+            return color;
+        }
     }
 }

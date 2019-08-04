@@ -81,7 +81,6 @@ public class StickyScript : MonoBehaviour
                 }
                 rb.useGravity = false;
 
-                Debug.Log("Sticking");
             }
         }
         else
