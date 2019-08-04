@@ -4,52 +4,59 @@ using UnityEngine;
 
 public class MasterScript : MonoBehaviour
 {
-    [SerializeField] bool bouncing = false;
-    [SerializeField] bool minimized = false;
-    [SerializeField] bool sticky = false;
-    [SerializeField] bool speedBoost = false;
-    [SerializeField] bool ghostsActivated = false;
-    [SerializeField] bool gravitationReversed = false;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int color = 0;
 
     // Update is called once per frame
     void Update()
     {
-        
+        color = 0;
+        bool key1, key2, key3;
+        key1 = Input.GetKey(KeyCode.Alpha1);
+        key2 = Input.GetKey(KeyCode.Alpha2);
+        key3 = Input.GetKey(KeyCode.Alpha3);
+
+        if (key1 && key2 && key3)
+        {
+            color = 0;
+        }
+        else if (key2 && key3)
+        {
+            color = 4;
+        }
+        else if (key1 && key3)
+        {
+            color = 5;
+        }
+        else if (key1 && key2)
+        {
+            color = 6;
+        }
+        else if (key1)
+        {
+            color = 1;
+        }
+        else if (key2)
+        {
+            color = 2;
+        }
+        else if (key3)
+        {
+            color = 3;
+        }
     }
 
-    public bool isBouncing()
+    /*
+     * 0 white  nothing
+     * 1 red    bouncy
+     * 2 blue   minimize
+     * 3 yellow sticky
+     * 4 green  ghost
+     * 5 orange gravity
+     * 6 purple faster player
+    */
+    int getCurrentColor()
     {
-        return bouncing;
+        return color;
     }
-
-    public bool isMinimized()
-    {
-        return minimized;
-    }
-
-    public bool isSticky()
-    {
-        return sticky;
-    }
-
-    public bool isSpeedBoosted()
-    {
-        return speedBoost;
-    }
-
-    public bool isGhostActivated()
-    {
-        return ghostsActivated;
-    }
-
-    public bool isGravitationalReversed()
-    {
-        return gravitationReversed;
-    }
+   
 }
