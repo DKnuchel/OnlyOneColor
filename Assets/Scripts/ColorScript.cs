@@ -18,6 +18,7 @@ public class ColorScript : MonoBehaviour
     [SerializeField] Material purpleMaterial;
     [SerializeField] Material blackMaterial;
 
+
     Vector4 defaultColor;
     Shader defaultShader;
     [SerializeField] Shader ghostShader;
