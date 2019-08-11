@@ -36,20 +36,22 @@ public class MinimizeScript : MonoBehaviour
                     break;
             }
             }
-            while (transform.localScale.x > 0.5)
+            /*while (transform.localScale.x > 0.5)
             {
                 transform.localScale -= new Vector3(size, size, size);
 
-            }
+            }*/
+            transform.localScale = Vector3.one * 0.5f;
 
 
         }
         else
         {
-            while (transform.localScale.x != 1)
+            /*while (transform.localScale.x < 1)
             {
                 transform.localScale += new Vector3(size, size, size);
-            }
+            }*/
+            transform.localScale = Vector3.one;
         }
     }
 
