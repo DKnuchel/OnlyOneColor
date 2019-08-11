@@ -8,8 +8,6 @@ public class MinimizeScript : MonoBehaviour
 {
     BlockBehaviourScript behaviourScript = null;
     Rigidbody rb;
-    float size = 0.01f;
-    float angle;
     int contactSide = 4; // 0 = T, 1 = R, 2 = B, 3 = L, 4 = no collision
     float transformValue;
    
@@ -36,21 +34,11 @@ public class MinimizeScript : MonoBehaviour
                     break;
             }
             }
-            /*while (transform.localScale.x > 0.5)
-            {
-                transform.localScale -= new Vector3(size, size, size);
-
-            }*/
             transform.localScale = Vector3.one * 0.5f;
-
 
         }
         else
         {
-            /*while (transform.localScale.x < 1)
-            {
-                transform.localScale += new Vector3(size, size, size);
-            }*/
             transform.localScale = Vector3.one;
         }
     }
