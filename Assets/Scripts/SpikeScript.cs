@@ -12,6 +12,5 @@ public class SpikeScript : MonoBehaviour
     {
         if (collision.gameObject == player)
             SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
-        
     }
 }
